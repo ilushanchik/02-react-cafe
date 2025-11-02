@@ -18,14 +18,14 @@ function VoteOptions({ onVote, onReset, canReset }: VoteOptionsProps) {
       <button onClick={() => onVote("bad")} className={css.button}>
         Bad
       </button>
-      <button
-        onClick={onReset}
-        className={clsx(
-          `${css.button} ${css.reset} ${canReset && css["hidden-button"]}`
-        )}
-      >
-        Reset
-      </button>
+      {canReset && (
+        <button
+          onClick={onReset}
+          className={clsx(`${css.button} ${css.reset}`)}
+        >
+          Reset
+        </button>
+      )}
     </div>
   );
 }
